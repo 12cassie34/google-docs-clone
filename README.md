@@ -17,7 +17,9 @@ The exercise is from [How to Build a Google Docs Clone with React, Material UI, 
 
 
 ### What I learned
-
+#### 2022/05/17
+- How to create a database in Firebase service and store, fetch datum from my database
+- Concurren rendering in React (v.18), use `useRef` to prevent calling API twice
 
 ### The problems I encountered
 
@@ -39,6 +41,7 @@ To be added
 - Semantic HTML5 markup
 - [React](https://reactjs.org/) - JS library
 - [tailwindcss](https://tailwindcss.com/) - the utility-first CSS framework
+- [Firebase](https://firebase.google.com/) 
 
 ## Author
 
