@@ -1,5 +1,5 @@
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box"
+import Modal from "@mui/material/Modal"
 
 const style = {
   position: "absolute",
@@ -11,26 +11,26 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-};
+}
 
-function TheModal(props) {
+function TheModal({ isOpen, closeModal, title, setTitle, addData }) {
   return (
     <div>
       <Modal
-        open={props.isOpen}
-        onClose={props.closeModal}
+        open={isOpen}
+        onClose={closeModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <input placeholder="Add the Title" className="add-input" />
+          <input onChange={(event) => setTitle(event.target.value) } value={title} placeholder="Add the Title" className="add-input" />
           <div className="button-container">
-            <button className="add-docs">Add</button>
+            <button onClick={addData} className="add-docs">Add</button>
           </div>
         </Box>
       </Modal>
     </div>
-  );
+  )
 }
 
-export default TheModal;
+export default TheModal
