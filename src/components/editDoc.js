@@ -46,9 +46,11 @@ function EditDoc({ database }) {
     }
 
     return (
-        <div>
+        <div className='editDocs-container'>
             <h1>{docsTitle}</h1>
-            <ReactQuill value={docsDesc} onChange={getQuillData} />
+            <div className='editDocs-inner'>
+                <ReactQuill value={docsDesc} onChange={getQuillData} className='react-quill' />
+            </div>
         </div>
     )
 }

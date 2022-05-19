@@ -27,7 +27,8 @@ function Docs({ database }) {
     }
     const addData = () => {
         addDoc(collectionRef, {
-            title: title
+            title: title,
+            docsDesc: ''
         })
             .then(() => {
                 alert('Data Added')
@@ -55,6 +56,7 @@ function Docs({ database }) {
                     return (
                         <div onClick={() => {getDocId(doc.id)}} key={doc.id} className="grid-child">
                             <p>{doc.title}</p>
+                            <div dangerouslySetInnerHTML={{__html: doc.docsDesc}} />
                         </div>
                     )
                 })}
