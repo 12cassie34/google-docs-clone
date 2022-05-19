@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom"
 
 import TheModal from "./modal"
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Docs({ database }) {
     const [isOpen, setOpen] = useState(false)
     const openModal = () => setOpen(true)
@@ -31,11 +34,15 @@ function Docs({ database }) {
             docsDesc: ''
         })
             .then(() => {
-                alert('Data Added')
+                toast.success('The new document is Saved.', {
+                    autoClose: 2000
+                })
                 closeModal()
             })
             .catch(() => {
-                alert('Cannot add data')
+                toast.error('Cannot save the new document.', {
+                    autoClose: 2000
+                })
             })
     }
 
@@ -54,14 +61,15 @@ function Docs({ database }) {
             <div className="grid-main">
                 {docsData.map((doc) => {
                     return (
-                        <div onClick={() => {getDocId(doc.id)}} key={doc.id} className="grid-child">
+                        <div onClick={() => { getDocId(doc.id) }} key={doc.id} className="grid-child">
                             <p>{doc.title}</p>
-                            <div dangerouslySetInnerHTML={{__html: doc.docsDesc}} />
+                            <div dangerouslySetInnerHTML={{ __html: doc.docsDesc }} />
                         </div>
                     )
                 })}
             </div>
             <TheModal isOpen={isOpen} closeModal={closeModal} title={title} setTitle={setTitle} addData={addData} />
+            <ToastContainer />
         </div>
     )
 }
