@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from "react"
-import { addDoc, collection, onSnapshot } from "firebase/firestore"
+import { addDoc, collection, onSnapshot, deleteDoc, doc } from "firebase/firestore"
 import { useNavigate } from "react-router-dom"
 
 import TheModal from "./modal"
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import Icon from '@mdi/react';
+import { mdiDelete } from '@mdi/js'
 
 function Docs({ database }) {
     const [isOpen, setOpen] = useState(false)
@@ -45,6 +48,20 @@ function Docs({ database }) {
                 })
             })
     }
+    const deleteTheDoc = (e, id) => {
+        e.stopPropagation()
+        const document = doc(collectionRef, id)
+        deleteDoc(document).then(() => {
+            console.log("remove success")
+            toast.success('The document is deleted', {
+                autoClose: 2000
+            })
+        }).catch(() => {
+            toast.error('The deleting is failed', {
+                autoClose: 2000
+            })
+        })
+    }
 
     const isMounted = useRef()
     useEffect(() => {
@@ -64,6 +81,11 @@ function Docs({ database }) {
                         <div onClick={() => { getDocId(doc.id) }} key={doc.id} className="grid-child">
                             <p>{doc.title}</p>
                             <div dangerouslySetInnerHTML={{ __html: doc.docsDesc }} />
+                            <Icon
+                                onClick={(e) => deleteTheDoc(e, doc.id)}
+                                path={mdiDelete}
+                                size={1}
+                                color="gray" />
                         </div>
                     )
                 })}
