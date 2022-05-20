@@ -1,5 +1,3 @@
-Demo Page under construction
-
 ## Table of contents
 
 - [Overview](#overview)
@@ -25,23 +23,23 @@ The exercise is from [How to Build a Google Docs Clone with React, Material UI, 
 
 
 ### Links
-- Solution URL: 
-- Live Site URL: 
-- The Layout Design URL:
+- Solution URL: https://github.com/12cassie34/google-docs-clone
 
 ### Screenshot
-To be added
-
+![](https://i.imgur.com/ygVZqbw.png)
+![](https://i.imgur.com/n73IAkc.png)
 
 ## My process
 
 ### Built with
 
-- Use [vite](https://vitejs.dev/) to create the project. 
 - Semantic HTML5 markup
 - [React](https://reactjs.org/) - JS library
-- [tailwindcss](https://tailwindcss.com/) - the utility-first CSS framework
+- [MUI](https://mui.com/zh/)
+- [ReactQuill](https://github.com/zenoamaro/react-quill)
 - [Firebase](https://firebase.google.com/) 
+- [MaterialDesign-React](https://github.com/Templarian/MaterialDesign-React)
+- [react-toastify](https://www.npmjs.com/package/react-toastify)
 
 ## Author
 
